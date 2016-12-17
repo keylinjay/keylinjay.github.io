@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-    {% include head.html %}
-<body>
-    {% include header.html %}
-    {{ content }}
-    {% include footer.html %}
-</body>
-</html>
+---
+layout: default
+---
+<article class="post">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+        {% if page.author %}
+            <span>{{ page.author }}</span>
+        {% endif %}
+    </p>
+    
+    <section class="post-content">
+        {{ content }}
+    </section>
+</article>
+
