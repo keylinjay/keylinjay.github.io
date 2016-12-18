@@ -24,11 +24,18 @@ sina_uername: 木落绕指
 
 
 repository: keylinjay/blog
+
+
 # Build settings
 #markdown: kramdown
 #theme: minima
 #gems:
 #  - jekyll-feed
-#exclude:
-#  - Gemfile
-#  - Gemfile.lock
+excerpt_separator: "\n"
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .git
+  - .gitignore
