@@ -1,0 +1,20 @@
+/* ****************************** */
+/* menu-icon */
+/* ****************************** */
+.menu-icon {
+    span {
+        display: block;
+        border-radius: 2px;
+        background-color: $grey-color-dark;
+        width: 80%;
+        height: 5px;
+        margin: 2px auto;
+    }
+    &:hover {
+        span {
+            background-color: $grey-color-light;
+        }
+    }
+}
+
+
