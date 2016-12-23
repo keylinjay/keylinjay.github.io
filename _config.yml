@@ -26,6 +26,10 @@ sina_uername: 木落绕指
 repository: keylinjay/blog
 
 
+#paginate setting
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 # Build settings
 #markdown: kramdown
 #theme: minima
