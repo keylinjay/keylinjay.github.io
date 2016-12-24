@@ -6,8 +6,9 @@ layout: default
     
     {{ content }}
     
+    <!-- pagination setting-->
     <ul class="post-list">
-        {% for post in site.posts %}
+        {% for post in paginator.posts %}
             <li>
                 <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
                 <h2><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
@@ -17,4 +18,34 @@ layout: default
             </li>
         {% endfor %}
     </ul>
+
+    <!-- page list -->
+    <div class="pagination">
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | relative_url }}" class="page-previous">Previous</a>       
+            <a class="page-number" href="{{ '/' | relative_url }}">1</a>
+        {% else %}
+            <span class="page-previous">Previous</span>
+            <span class="page-number">1</span>
+        {% endif %}
+
+        <!-- deal with the pages of remainder (from 2 to last) -->
+        {% for num in ( 2..paginator.total_pages ) %}
+            {% if num == paginator.page %}
+                <span class="page-number">{{ num }}</span>
+            {% else %}
+                <a class="page-number" href="{{ site.paginate_path | replace:':num',num | relative_url }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        <!-- deal with the next page -->
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | relative_url }}" class="page-next">Next</a>
+        {% else %}
+            <span class="page-next">Next</span>
+        {% endif %}
+
+        <!-- show the current page and the total page -->
+        <span class="page-number">Page:{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    </div>
 </section>
