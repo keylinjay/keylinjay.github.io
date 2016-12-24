@@ -201,6 +201,10 @@
 .page-previous {
     @extend .page-number;
     font-size: 1.3em;
+    width: 5em;
+}
+a.page-previous {
+    border-color: $grey-color-dark;
 }
 .page-next {
     @extend .page-previous;
