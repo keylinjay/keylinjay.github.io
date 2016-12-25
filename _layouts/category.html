@@ -2,9 +2,23 @@
 layout: default
 ---
 
-{% for category in site.categories %}
-<a class="category-link" href="#{{ category[0] }}">{{ category[0]}}</a>
-{% endfor %}
+<!-- category list -->
+<div class="category-list">
+    {% for category in site.categories %}
+    <a class="category-link" href="#{{ category[0] }}">{{ category[0]}}</a>
+    {% endfor %}
+</div>
 
 
-    
+<!-- the posts of category -->   
+<ul class="post-list">
+    {% for category in site.categories %}
+    <h1 id="{{ category[0] }}" class="list-heading">{{ category[0] }}</h1>
+        {% for post in category[1] %}
+        <li>
+            <span class="post-meta">{{ post.date | date:"%b %-d,%Y" }}</span>           
+            <h2><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+        </li>
+        {% endfor %}
+    {% endfor %}
+</ul>

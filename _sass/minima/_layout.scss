@@ -254,3 +254,21 @@ a.page-previous {
     }
   }
 }
+/* ****************************** */
+/* category */
+/* ****************************** */
+.category-list {
+    margin: $spacing-unit / 2;
+    .category-link {
+        display: inline-block;
+        border-radius: 1.4em;
+        margin: $spacing-unit / 5;
+        padding: .4em;
+        background: $tag-color;
+        color: #fff;
+        &:hover {
+            background-color: $tag-color-dark;
+            text-decoration: none;
+        }
+    }
+}
