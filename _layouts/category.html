@@ -11,14 +11,17 @@ layout: default
 
 
 <!-- the posts of category -->   
-<ul class="post-list">
-    {% for category in site.categories %}
-    <h1 id="{{ category[0] }}" class="list-heading">{{ category[0] }}</h1>
+{% for category in site.categories %}
+    <ul class="post-list">
+        <h1 id="{{ category[0] }}" class="list-heading">{{ category[0] }}</h1>
         {% for post in category[1] %}
         <li>
             <span class="post-meta">{{ post.date | date:"%b %-d,%Y" }}</span>           
             <h2><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+            {% if post.subtitle %}
+            <span class="post-meta">{{ post.subtitle | escape }}</span>           
+            {% endif %}
         </li>
         {% endfor %}
-    {% endfor %}
-</ul>
+    </ul>
+{% endfor %}
